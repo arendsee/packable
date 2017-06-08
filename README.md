@@ -64,6 +64,8 @@ extensions. I will introduce the following extensions:
 
  * MultiParamTypeClasses - allow multi-parameter typeclasses
  * TypeSynonymInstances - allow type synonyms to be used in instance
+ * FlexibleInstances - allow nested types in instance signatures
+ * FlexibleContexts - allow nested types in contexts of instances or classes
 
 The Packable typeclass defines two functions for mapping between two types. It
 describes a symmetric relationship and so naturally requires two parameters.
@@ -115,8 +117,8 @@ Illegal instance declaration for ‘Packable String ByteString’
 
 
 The GHC User Guide offers a very readable discussion of the
-TypeSynonymInstances and FlexibleInstances extensions. Basically, in Haskell98,
-there are strong restrictions on what types my be used in instance
+`TypeSynonymInstances` and `FlexibleInstances` extensions. Basically, in
+Haskell98, there are strong restrictions on what types my be used in instance
 declarations. The reason for these restrictions is to avoid undecidable cases
 (where the type algorithm fails). The specific rule is that an instance
 declaration must have the form:
@@ -175,4 +177,4 @@ Non type-variable argument in the constraint: Packable String a
 
 This is an issue very similar to the one `FlexibleInstances` solved earlier. The difference is that `FlexibleInstances` allowed complex types in the function signature, whereas `FlexibleContexts` loosens restrictions in the function (or instance) contexts.
 
-Adding in FlexibleContexts allows everything to now passcheck.
+Adding in **FlexibleContexts** allows everything to compile.
