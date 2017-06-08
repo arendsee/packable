@@ -43,7 +43,9 @@ module Packable
 ) where
 
 import qualified Data.ByteString.Char8 as DBC
+import qualified Data.ByteString.Lazy as DBL
 import qualified Data.Text as DT
+import qualified Data.Binary as DB
 
 -- Requires: MultiParamTypeClasses to have two types 
 
@@ -63,6 +65,10 @@ instance Packable String DBC.ByteString where
 instance Packable String DT.Text where
   gpack   = DT.pack
   gunpack = DT.unpack
+
+instance (DB.Binary a) => Packable a DBL.ByteString where
+  gpack = DB.encode
+  gunpack = DB.decode
 
 -- Without FlexibleContexts, emits this error message:
 --

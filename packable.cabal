@@ -64,7 +64,10 @@ library
   other-extensions:    MultiParamTypeClasses, FlexibleContexts, FlexibleInstances, TypeSynonymInstances, OverloadedStrings
   
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.9 && <4.10, bytestring >=0.10 && <0.11, text >=1.2 && <1.3
+  build-depends:       base >=4.9 && <4.10,
+                       bytestring >=0.10 && <0.11,
+                       text >=1.2 && <1.3,
+                       binary >= 0.8 && < 0.9
   
   -- Directories containing source files.
   hs-source-dirs:      src
