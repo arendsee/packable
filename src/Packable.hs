@@ -7,8 +7,6 @@
 -- Allow type synonyms in instance contexts
 -- Haskell98 only allows type constructors made with newtype and data
 {-# LANGUAGE TypeSynonymInstances #-}
--- Needed for string literals to be interpreted as Text or ByteString
-{-# LANGUAGE OverloadedStrings #-}
 
 {-|
 
